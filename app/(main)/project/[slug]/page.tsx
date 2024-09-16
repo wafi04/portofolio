@@ -11,14 +11,6 @@ interface Props {
   };
 }
 
-export async function generateStaticParams({ params }: Props) {
-  const posts = await GetPostById(decodeURIComponent(params.slug));
-  if (!posts) {
-    return "Post Not found";
-  }
-  return posts.title;
-}
-
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
